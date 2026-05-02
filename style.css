@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background: #0b0d17;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Animated Aurora Background */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    background: radial-gradient(circle at 50% 50%, #1a1b3a 0%, #07080a 100%);
+}
+
+.background-overlay::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    z-index: -1;
+    background: radial-gradient(circle at 30% 30%, rgba(100, 255, 218, 0.1), transparent),
+                radial-gradient(circle at 70% 70%, rgba(255, 0, 150, 0.1), transparent);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+header {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+header h1 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+}
+
+header h1 span {
+    color: #00ffda;
+    text-shadow: 0 0 15px rgba(0, 255, 218, 0.6);
+}
+
+header p {
+    font-weight: 300;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+/* Gallery Grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cards */
+.card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(0, 255, 218, 0.2);
+    border-color: rgba(0, 255, 218, 0.5);
+}
+
+.card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.info {
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.info h3 {
+    font-size: 1.4rem;
+    color: #00ffda;
+    margin-bottom: 5px;
+}
+
+.info p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+footer {
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    opacity: 0.6;
+}
